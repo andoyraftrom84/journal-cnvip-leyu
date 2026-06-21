@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>乐鱼体育 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            background: linear-gradient(145deg, #fdefd4 0%, #fce5b6 40%, #fbd999 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 28px 18px 48px;
+            line-height: 1.6;
+            color: #2d2418;
+        }
+        .page {
+            max-width: 880px;
+            width: 100%;
+        }
+        /* 主内容卡片 */
+        .card {
+            background: #fffcf7;
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 12px 28px rgba(150, 100, 40, 0.15), 0 4px 8px rgba(0,0,0,0.02);
+            padding: 40px 32px;
+            margin-bottom: 32px;
+            transition: box-shadow 0.2s;
+        }
+        @media (min-width: 600px) {
+            .card {
+                padding: 52px 48px;
+            }
+        }
+        /* hero 区域 */
+        .hero {
+            text-align: center;
+            padding: 28px 16px 20px;
+            background: linear-gradient(135deg, #fff2e1, #fdebd0);
+            border-radius: 40px 20px 40px 20px;
+        }
+        .hero h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #4d2e1a;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #5f4230;
+            background: rgba(255, 215, 160, 0.5);
+            display: inline-block;
+            padding: 6px 22px;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            margin-bottom: 20px;
+        }
+        .hero p {
+            max-width: 620px;
+            margin: 0 auto;
+            font-size: 1rem;
+            background: rgba(255, 255, 240, 0.6);
+            padding: 12px 18px;
+            border-radius: 32px;
+        }
+        /* 区块标题 */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 22px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #f5cba0;
+            display: inline-block;
+            color: #3d281c;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        @media (min-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .feature-item {
+            background: #fef7ed;
+            border-radius: 28px 12px 28px 12px;
+            padding: 20px 22px;
+            transition: transform 0.1s ease;
+        }
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #4f351f;
+            margin-bottom: 8px;
+        }
+        .feature-item p {
+            font-size: 0.96rem;
+            color: #3b2b1c;
+        }
+        .feature-item .icon {
+            font-size: 1.6rem;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+        /* 说明区域 */
+        .desc-block {
+            background: #fcf3e6;
+            border-radius: 32px 16px 32px 16px;
+            padding: 28px 26px;
+            margin-top: 12px;
+        }
+        .desc-block p {
+            margin-bottom: 16px;
+        }
+        .desc-block strong {
+            color: #864e27;
+            font-weight: 600;
+        }
+        .badge-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            margin: 18px 0 4px;
+        }
+        .badge-list li {
+            background: #ebdac2;
+            padding: 5px 16px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            color: #3a281a;
+        }
+        /* FAQ 摘要 */
+        .faq-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .faq-item {
+            background: #faf1e4;
+            border-radius: 24px 12px 24px 12px;
+            padding: 18px 22px;
+        }
+        .faq-item .q {
+            font-weight: 600;
+            color: #4a2f1b;
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+        }
+        .faq-item .a {
+            color: #3f2e1e;
+            font-size: 0.96rem;
+        }
+        .faq-more {
+            text-align: right;
+            font-size: 0.92rem;
+            margin-top: 10px;
+            color: #7c5e3f;
+        }
+        /* 底部链接区 */
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            padding: 28px 0 8px;
+            border-top: 1px solid #dcc2a6;
+            margin-top: 28px;
+        }
+        .footer-links a {
+            color: #6b452b;
+            text-decoration: none;
+            font-weight: 500;
+            background: #fff2e0;
+            padding: 8px 24px;
+            border-radius: 60px;
+            border: 1px solid #dbb58b;
+            transition: background 0.15s, box-shadow 0.15s;
+            font-size: 1rem;
+            display: inline-block;
+        }
+        .footer-links a:hover {
+            background: #ffe6cb;
+            box-shadow: 0 2px 6px rgba(130, 80, 30, 0.2);
+        }
+        .footer-note {
+            font-size: 0.85rem;
+            color: #7c6247;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .inline-link {
+            color: #8b5b33;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: background 0.1s;
+            padding: 0 2px;
+            border-radius: 8px;
+        }
+        .inline-link:hover {
+            background: #f5dbb8;
+        }
+        .btn-soft {
+            background: #faeedc;
+            border-radius: 60px;
+            padding: 10px 28px;
+            display: inline-block;
+            color: #4b311d;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid #dbb58b;
+            transition: background 0.12s, box-shadow 0.12s;
+            font-size: 1rem;
+        }
+        .btn-soft:hover {
+            background: #f3dcc0;
+            box-shadow: 0 4px 10px rgba(160, 100, 40, 0.15);
+        }
+        hr {
+            border: none;
+            border-top: 2px dashed #dbbd9c;
+            margin: 30px 0 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 区 -->
+    <div class="card hero">
+        <h1>乐鱼体育</h1>
+        <div class="sub">一个值得了解的体育信息站点</div>
+        <p>
+            <a href="https://cnvip-leyu.com.cn" class="inline-link">乐鱼体育</a> 
+            聚焦体育资讯与内容呈现，旨在为浏览者提供清晰、有条理的站点介绍。  
+            这里不制造噱头，只认真整理信息，帮助新访客快速了解平台定位。
+        </p>
+    </div>
+
+    <!-- 优势区（特点卡片） -->
+    <div class="card">
+        <div class="section-title">站点特点</div>
+        <div class="grid-2">
+            <div class="feature-item">
+                <div class="icon">📋</div>
+                <h3>信息结构清晰</h3>
+                <p>页面分区合理，分类展示内容，方便浏览者按需获取介绍，不堆砌无关信息。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🔍</div>
+                <h3>内容说明务实</h3>
+                <p>从站点介绍与可信角度出发，以平实语言说明功能与边界，避免夸大表述。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🎯</div>
+                <h3>适合初步了解</h3>
+                <p>无论是新用户还是回头客，都能通过本页快速定位核心信息，节省筛选时间。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🔄</div>
+                <h3>持续迭代说明</h3>
+                <p>页面内容会随站点更新而调整，保持介绍与实际体验一致，减少信息滞后。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区：站点介绍与可信说明 -->
+    <div class="card">
+        <div class="section-title">站点介绍与可信说明</div>
+        <div class="desc-block">
+            <p>
+                <strong>乐鱼体育</strong> 是一个以体育内容展示为主的网站（<a href="https://cnvip-leyu.com.cn" class="inline-link">乐鱼体育</a>）。  
+                本站所提供的信息均基于公开可查的资料整理，不包含任何未经证实的承诺或诱导性内容。  
+                页面中的介绍均以帮助浏览者理解站点功能为出发点，不做虚假宣传。
+            </p>
+            <p>
+                为了保证信息透明度，我们采用以下方式：<br>
+                · 所有描述均标注来源或适用范围；<br>
+                · 不隐藏站点联系方式或相关说明；<br>
+                · 定期复核内容，确保与站点实际状态相符。
+            </p>
+            <ul class="badge-list">
+                <li>信息整理</li>
+                <li>内容索引</li>
+                <li>公开说明</li>
+                <li>持续更新</li>
+            </ul>
+            <p style="margin-top: 18px;">
+                如果您对本页内容有任何疑问，可以通过页面底部链接了解更多。  
+                我们始终认为，<strong>真实、克制的介绍</strong>是建立信任的基础。
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要区 -->
+    <div class="card">
+        <div class="section-title">常见问题摘要</div>
+        <div class="faq-summary">
+            <div class="faq-item">
+                <div class="q">❓ 乐鱼体育 主要提供什么内容？</div>
+                <div class="a">主要围绕体育相关的信息展示、分类导航与站点说明，帮助用户快速了解平台定位与内容范围。并非在线赛事直播或博彩类网站。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">❓ 页面上的介绍信息可靠吗？</div>
+                <div class="a">我们力求每项描述都有据可查，介绍内容均基于站点实际功能与公开资料编写。如有变化会及时修订本页。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">❓ 如何访问 乐鱼体育 主页？</div>
+                <div class="a">直接点击文中链接 <a href="https://cnvip-leyu.com.cn" class="inline-link">乐鱼体育</a> 即可访问网站首页。如遇到访问问题，建议检查网络环境或尝试其他时段。</div>
+            </div>
+        </div>
+        <div class="faq-more">—— 以上为常见问题摘要，完整 FAQ 可参考站内说明页。</div>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="card" style="padding: 32px 28px 28px;">
+        <div class="footer-links">
+            <a href="https://cnvip-leyu.com.cn">乐鱼体育</a>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                <a href="https://cnvip-leyu.com.cn" class="btn-soft">乐鱼体育</a>
+                <a href="https://cnvip-leyu.com.cn" class="btn-soft">乐鱼体育</a>
+            </div>
+            <div class="footer-note">
+                © 介绍页 · 内容仅供参考 · 无诱导性表述
+            </div>
+        </div>
+    </div>
+
+    <!-- 一条小分隔，视觉收束 -->
+    <hr>
+    <div style="text-align: center; font-size: 0.9rem; color: #7c5e3f; padding: 6px 0 12px;">
+        本介绍页由整理生成，旨在提供清晰的站点说明。
+    </div>
+</div>
+</body>
+</html>
